@@ -27,7 +27,10 @@ fun main(){
         x > 0 -> println("positive")
         x == 0 -> println("zero")
         else -> println("NaN")
+
     }
+
+
 
 
 
