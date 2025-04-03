@@ -1,20 +1,27 @@
-fun main(){
-    println("Welcome to the club ")
-    println("Enter Your age: ")
-    val age = readln().toIntOrNull() ?: 0
-    println("Do You Have A VIP Pass? (yes/no) ")
-    val hasVipPass = readln().equals("yes", ignoreCase = true)
-    println("Are You A member? (yes/no) ")
-    val isMember = readln().equals("yes", ignoreCase = true)
-    println("Your age is " +  age)
-    println(hasVipPass)
-    println(isMember)
+fun main() {
+    print("Enter your age: ")
+    val age = readLine()?.toIntOrNull() // Read age from input and convert to Int
 
-    when {
-        age < 18 -> println("Entry to the club denied")
-        age >= 18 -> println("Entry to the club granted")
-
+    if (age == null || age <= 0) {
+        println("Invalid age entered.")
+        return // Exit if age is invalid
     }
 
+    if (age <= 18) {
+        println("Sorry, you are not allowed entry.")
+    } else {
+        println("Welcome! Please enter your member number (or 'VIP' for VIP access): ")
+        val memberNumber = readLine()
 
+        if (memberNumber.equals("VIP", ignoreCase = true)) {
+            println("VIP access granted! Enjoy the VIP lounge.")
+        } else {
+            when (memberNumber) {
+                "78987" -> println("Member with drinks discount.")
+                "97778" -> println("Member of the regular set.")
+
+                else -> println("Member status not recognized.")
+            }
+        }
+    }
 }
